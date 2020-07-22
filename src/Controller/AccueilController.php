@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace App\Controller;
 
@@ -15,7 +15,7 @@ class AccueilController extends AbstractController
     {
         return $this->render('accueil/index.html.twig',
         [
-            'title_articles' => [
+            'articles' => [
                 'Titre_1',
                 'Titre_2',
                 'Titre_3',
@@ -24,14 +24,15 @@ class AccueilController extends AbstractController
                 'Titre_6',
             ],
             'images' => [
-                'src/images/1.jpg',
-                'src/images/2.jpg',
-                'src/images/3.jpg',
-                'src/images/4.jpg',
-                'src/images/5.jpg',
-                'src/images/6.jpg',
+                'images/1.jpg',
+                'images/2.jpg',
+                'images/3.jpg',
+                'images/4.jpg',
+                'images/5.jpg',
+                'images/6.jpg',
             ]
-        ])
+        ]);
     }
 
 }
+?>
