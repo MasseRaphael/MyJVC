@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CreationController extends AbstractController
 {
     /**
-     * @Route("/creation", name="creation_article")
+     * @Route("/Actu", name="actu")
      */
     public function index()
     {
