@@ -4,12 +4,11 @@ body{
 
 header{
     position: fixed;
-    width: 100vw;
+    width: 100%;
 }
 
 footer{
-    width: 100vw;
-    background: black;
+    width: 100%;
 }
 
 nav{
@@ -22,6 +21,10 @@ nav a{
     margin: 20px;
 }
 
+.copyright{
+    text-align: center;
+}
+
 .layout_header{
     max-width: 60vw;
     margin: 0 auto;
@@ -31,9 +34,9 @@ nav a{
 
 .layout_footer{
     max-width: 60vw;
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .souscate{
