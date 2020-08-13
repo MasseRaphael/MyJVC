@@ -21,8 +21,26 @@ nav a{
     margin: 20px;
 }
 
+.important_link{
+    background: #004365;
+    padding: 20px;
+    color: white;
+}
+
+.important_link a{
+    color: white;
+    margin: 20px;
+}
+
 .copyright{
     text-align: center;
+    background: #002F46;
+    padding: 10px;
+    color: #4da0cd;
+}
+
+.copyright a{
+    color: #4da0cd;
 }
 
 .layout_header{
@@ -45,6 +63,11 @@ nav a{
 }
 
 .souscate a{
-    color: white;
+    color: #4da0cd;
     margin: 10px;
+}
+
+.social_media{
+    background: white;
+    text-align: center;
 }
