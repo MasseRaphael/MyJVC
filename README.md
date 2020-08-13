@@ -10,9 +10,9 @@ La Base de donnée est créer sous Doctrine et contient les tables des comptes u
 
 Les technologies utilisées sont :
 
-..* PHP 7.4
-..* Symfony 5.1
-..* Doctrine
+* PHP 7.4
+* Symfony 5.1
+* Doctrine
 
 # L'installation
 
