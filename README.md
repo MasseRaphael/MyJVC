@@ -20,4 +20,11 @@ Les technologies utilisées sont :
 
 # Utilisation
 
+Pour lancer le serveur local symfony utilisez un terminal et taper la commande :
+'''
+symfony server:start
 
+ou
+
+php bin/console server:start
+'''
