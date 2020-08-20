@@ -4,12 +4,12 @@
 
 {% block body %}
 
-    {% for image in images %}
-        <a href='#'><img src='{{ image }}'></a>
+    {% for article in articles %}
+        <a href='#'><img src="{{ article['image'] }}"><br>{{ article['titre'] }}</a>
     {% endfor %}
     
-    {% for article in articles %}
-        <li><a href='#'>{{ article }}</a></li>
+    {% for liste in listes %}
+        <li><a href='#'>{{ liste }}</a></li>
     {% endfor %}
 
 {% endblock %}

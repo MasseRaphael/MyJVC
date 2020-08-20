@@ -15,7 +15,7 @@ class AccueilController extends AbstractController
     {
         return $this->render('accueil/index.html.twig',
         [
-            'articles' => [
+            'listes' => [
                 'Titre_1',
                 'Titre_2',
                 'Titre_3',
@@ -23,13 +23,31 @@ class AccueilController extends AbstractController
                 'Titre_5',
                 'Titre_6',
             ],
-            'images' => [
-                'images/1.jpg',
-                'images/2.jpg',
-                'images/3.jpg',
-                'images/4.jpg',
-                'images/5.jpg',
-                'images/6.jpg',
+            'articles' => [
+                [
+                    'image' => 'images/1.jpg',
+                    'titre' => 'Titre_1'
+                ],
+                [
+                    'image' => 'images/2.jpg',
+                    'titre' => 'Titre_2'
+                ],
+                [
+                    'image' => 'images/3.jpg',
+                    'titre' => 'Titre_3'
+                ],
+                [
+                    'image' => 'images/4.jpg',
+                    'titre' => 'Titre_4'
+                ],
+                [
+                    'image' => 'images/5.jpg',
+                    'titre' => 'Titre_5'
+                ],
+                [
+                    'image' => 'images/6.jpg',
+                    'titre' => 'Titre_6'
+                ],
             ]
         ]);
     }
