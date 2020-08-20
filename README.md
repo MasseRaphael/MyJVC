@@ -11,7 +11,7 @@ Les pages consultables seront pour les utilisateurs lambda la page d'accueil, la
 
 Les technologies utilisées sont :
 
-* PHP 7.4
+* PHP 7.4.9
 * Symfony 5.1
 * Doctrine
 
