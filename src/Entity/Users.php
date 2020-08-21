@@ -6,10 +6,12 @@ use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
+ * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
  */
 class Users implements UserInterface
 {
@@ -40,11 +42,6 @@ class Users implements UserInterface
      * @ORM\OneToMany(targetEntity=Articles::class, mappedBy="users")
      */
     private $articles;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
 
     public function __construct()
     {
@@ -155,15 +152,4 @@ class Users implements UserInterface
         return $this;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
 }
