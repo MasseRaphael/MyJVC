@@ -130,6 +130,7 @@ class Articles
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * @return Collection|Categories[]
      */
@@ -152,6 +153,11 @@ class Articles
         if ($this->categories->contains($category)) {
             $this->categories->removeElement($category);
         }
+=======
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+>>>>>>> parent of 98adb83... création de jointure entre table catégories et articles et supprssionmigration problématique
 =======
     public function setSlug(string $slug): self
     {
