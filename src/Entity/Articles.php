@@ -154,30 +154,4 @@ class Articles
         return $this;
     }
 
-    /**
-     * @return Collection|Categories[]
-     */
-    public function getCategories(): Collection
-    {
-        return $this->categories;
-    }
-
-    public function addCategory(Categories $category): self
-    {
-        if (!$this->categories->contains($category)) {
-            $this->categories[] = $category;
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Categories $category): self
-    {
-        if ($this->categories->contains($category)) {
-            $this->categories->removeElement($category);
-        }
-
-        return $this;
-    }
-
 }
