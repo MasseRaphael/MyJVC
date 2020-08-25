@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\CategoriesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=CategoriesRepository::class)
@@ -24,10 +25,14 @@ class Categories
     private $nom;
 
     /**
-     * @Gedmo\Slug(fields={"nom"})
-     * @ORM\Column(length=128, unique=true)
+     * @ORM\ManyToMany(targetEntity=Articles::class, mappedBy="categories")
      */
-    private $slug;
+    private $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -44,11 +49,6 @@ class Categories
         $this->nom = $nom;
 
         return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
     }
 
     /**
@@ -74,15 +74,8 @@ class Categories
         if ($this->articles->contains($article)) {
             $this->articles->removeElement($article);
             $article->removeCategory($this);
+
         }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }
