@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\CategoriesRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=CategoriesRepository::class)
@@ -24,8 +23,7 @@ class Categories
     private $nom;
 
     /**
-     * @Gedmo\Slug(fields={"nom"})
-     * @ORM\Column(length=128, unique=true)
+     * @ORM\Column(type="string", length=60)
      */
     private $slug;
 
