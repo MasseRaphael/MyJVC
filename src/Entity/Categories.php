@@ -51,8 +51,13 @@ class Categories
         return $this->slug;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Articles[]
      */
@@ -77,17 +82,4 @@ class Categories
             $this->articles->removeElement($article);
             $article->removeCategory($this);
         }
-=======
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
->>>>>>> parent of 98adb83... création de jointure entre table catégories et articles et supprssionmigration problématique
-=======
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
->>>>>>> parent of 98adb83... création de jointure entre table catégories et articles et supprssionmigration problématique
-
-        return $this;
-    }
 }
