@@ -1,7 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Les Dernière Actu{% endblock %}
+{% block title %}Articles index{% endblock %}
 
 {% block body %}
+    <h1>Articles index</h1>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Corps</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Featured_image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.corps }}</td>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.featuredImage }}</td>
+                <td>
+                    <a href="{{ path('articles_show', {'id': article.id}) }}">show</a>
+                    <a href="{{ path('articles_edit', {'id': article.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('articles_new') }}">Create new</a>
 {% endblock %}
