@@ -51,11 +51,6 @@ class Articles
     private $users;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $slug;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Categories::class, inversedBy="articles")
      */
     private $categories;
@@ -126,19 +121,6 @@ class Articles
         $this->users = $users;
 
         return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
-
     }
 
     /**
