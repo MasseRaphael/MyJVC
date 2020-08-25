@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/articles")
@@ -26,6 +27,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/new", name="articles_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -35,6 +37,21 @@ class ArticlesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            $image = $form->get('image')->getData();
+
+            $fichier= md5(uniqid()) . '.' . $image->guessExtension();
+
+            $image->move(
+                $this->getParameter('images_directory'),
+                $fichier
+            );
+
+            $article->setFeaturedImage($fichier);
+            $article->setCreatedAt(new \DateTime('now'));
+            $article->setUpdatedAt(new \DateTime('now'));
+            $article->setUsers($this->getUser());
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();

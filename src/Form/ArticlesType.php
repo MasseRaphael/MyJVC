@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Articles;
+use PhpParser\Parser\Multiple;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,10 +16,12 @@ class ArticlesType extends AbstractType
         $builder
             ->add('titre')
             ->add('corps')
-            ->add('created_at')
-            ->add('updated_at')
-            ->add('featured_image')
-            ->add('users')
+            ->add('image', FileType::class, [
+                'label' => false,
+                'multiple' => false,
+                'mapped' => false,
+                'required' => true
+            ])
             ->add('categories')
         ;
     }
