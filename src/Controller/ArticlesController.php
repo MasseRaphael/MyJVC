@@ -12,12 +12,23 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/articles")
+ * @Route("/actu")
  */
 class ArticlesController extends AbstractController
 {
     /**
-     * @Route("/Admin", name="articles_index", methods={"GET"})
+     * @Route("/", name="actu", methods={"GET"})
+     */
+    public function actu(ArticlesRepository $articlesRepository): Response
+    {
+        return $this->render('articles/actu.html.twig', [
+            'articles' => $articlesRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @IsGranted("ROLE_USER")
+     * @Route("/Admin", name="actu_index", methods={"GET"})
      */
     public function index(ArticlesRepository $articlesRepository): Response
     {
@@ -28,7 +39,7 @@ class ArticlesController extends AbstractController
 
     /**
      * @IsGranted("ROLE_USER")
-     * @Route("/new", name="articles_new", methods={"GET","POST"})
+     * @Route("/new", name="actu_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -66,7 +77,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="articles_show", methods={"GET"})
+     * @Route("/{id}", name="actu_show", methods={"GET"})
      */
     public function show(Articles $article): Response
     {
@@ -77,7 +88,7 @@ class ArticlesController extends AbstractController
 
     /**
      * @IsGranted("ROLE_USER")
-     * @Route("/{id}/edit", name="articles_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="actu_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Articles $article): Response
     {
@@ -110,7 +121,7 @@ class ArticlesController extends AbstractController
 
     /**
      * @IsGranted("ROLE_USER")
-     * @Route("/{id}", name="articles_delete", methods={"DELETE"})
+     * @Route("/{id}", name="actu_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Articles $article): Response
     {

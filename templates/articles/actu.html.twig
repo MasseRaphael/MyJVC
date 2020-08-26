@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles index{% endblock %}
+
+{% block body %}
+
+<h1>Listes des Actualitées</h1>
+
+        {% for article in articles %}
+            <div>
+            <a href="{{ path('articles_show', {'id': article.id}) }}"><img src="{{ asset('/images/' ~ article.featuredImage) }}">{{ article.titre }}</a>
+            </div>
+        {% else %}
+            <p>Il n'a pas encore d'articles</p>
+        {% endfor %}
+
+{% endblock %}
