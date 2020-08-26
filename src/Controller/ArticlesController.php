@@ -19,10 +19,11 @@ class ArticlesController extends AbstractController
     /**
      * @Route("/", name="actu", methods={"GET"})
      */
-    public function actu(ArticlesRepository $articlesRepository): Response
+    public function actu(): Response
     {
+        $articles = $this->getDoctrine()->getRepository(Articles::class)->findAll();
         return $this->render('articles/actu.html.twig', [
-            'articles' => $articlesRepository->findAll(),
+            'articles' => $articles,
         ]);
     }
 
@@ -30,10 +31,12 @@ class ArticlesController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @Route("/admin", name="actu_index", methods={"GET"})
      */
-    public function index(ArticlesRepository $articlesRepository): Response
+    public function index(): Response
     {
+        $articles = $this->getDoctrine()->getRepository(Articles::class)->findAll();
+
         return $this->render('articles/index.html.twig', [
-            'articles' => $articlesRepository->findAll(),
+            'articles' => $articles,
         ]);
     }
 

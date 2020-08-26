@@ -28,7 +28,8 @@
                 <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.featuredImage }}</td>
-                <td>{{ article.categories }}</td>
+                <td>{% for categorie in article.categories %}
+                {{ categorie }}{% endfor %}</td>
                 <td>{{ article.users }}</td>
                 <td>
                     <a href="{{ path('actu_show', {'id': article.id}) }}">show</a>
