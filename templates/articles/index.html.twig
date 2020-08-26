@@ -10,13 +10,13 @@
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
-                <th>Corps</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>Featured_image</th>
-                <th>Categories</th>
-                <th>Users</th>
-                <th>actions</th>
+                <th>Contenu</th>
+                <th>Créé le</th>
+                <th>Mis à jour le</th>
+                <th>Image de présentation</th>
+                <th>Catégories</th>
+                <th>Auteur</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,22 +27,22 @@
                 <td>{{ article.corps }}</td>
                 <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ article.featuredImage }}</td>
+                <td><img src="{{ asset('/images/' ~ article.featuredImage) }}" width="50%"><br>{{ article.featuredImage }}</td>
                 <td>{% for categorie in article.categories %}
                 {{ categorie }}{% endfor %}</td>
                 <td>{{ article.users }}</td>
                 <td>
-                    <a href="{{ path('actu_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('actu_edit', {'id': article.id}) }}">edit</a>
+                    <a href="{{ path('actu_show', {'id': article.id}) }}">Voir</a>
+                    <a href="{{ path('actu_edit', {'id': article.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Pas d'articles pour le moment</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('actu_new') }}">Create new</a>
+    <a href="{{ path('actu_new') }}">Créer un nouvel article</a>
 {% endblock %}
