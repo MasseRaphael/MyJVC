@@ -17,7 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class ArticlesController extends AbstractController
 {
     /**
-     * @Route("/", name="articles_index", methods={"GET"})
+     * @Route("/Admin", name="articles_index", methods={"GET"})
      */
     public function index(ArticlesRepository $articlesRepository): Response
     {
@@ -76,6 +76,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}/edit", name="articles_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Articles $article): Response
@@ -85,6 +86,16 @@ class ArticlesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $image = $form->get('image')->getData();
+
+            $fichier= md5(uniqid()) . '.' . $image->guessExtension();
+
+            $image->move(
+                $this->getParameter('images_directory'),
+                $fichier
+            );
+
+            $article->setFeaturedImage($fichier);
             $article->setUpdatedAt(new \DateTime('now'));
             $this->getDoctrine()->getManager()->flush();
 
@@ -98,6 +109,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}", name="articles_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Articles $article): Response
