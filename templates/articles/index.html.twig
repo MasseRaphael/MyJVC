@@ -14,6 +14,8 @@
                 <th>Created_at</th>
                 <th>Updated_at</th>
                 <th>Featured_image</th>
+                <th>Categories</th>
+                <th>Users</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,9 +28,11 @@
                 <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.featuredImage }}</td>
+                <td>{{ article.categories }}</td>
+                <td>{{ article.users }}</td>
                 <td>
-                    <a href="{{ path('articles_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('articles_edit', {'id': article.id}) }}">edit</a>
+                    <a href="{{ path('actu_show', {'id': article.id}) }}">show</a>
+                    <a href="{{ path('actu_edit', {'id': article.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +43,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('articles_new') }}">Create new</a>
+    <a href="{{ path('actu_new') }}">Create new</a>
 {% endblock %}

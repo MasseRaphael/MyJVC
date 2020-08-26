@@ -28,7 +28,7 @@ class ArticlesController extends AbstractController
 
     /**
      * @IsGranted("ROLE_USER")
-     * @Route("/Admin", name="actu_index", methods={"GET"})
+     * @Route("/admin", name="actu_index", methods={"GET"})
      */
     public function index(ArticlesRepository $articlesRepository): Response
     {
@@ -67,7 +67,7 @@ class ArticlesController extends AbstractController
             $entityManager->persist($article);
             $entityManager->flush();
 
-            return $this->redirectToRoute('articles_index');
+            return $this->redirectToRoute('actu_index');
         }
 
         return $this->render('articles/new.html.twig', [
@@ -110,7 +110,7 @@ class ArticlesController extends AbstractController
             $article->setUpdatedAt(new \DateTime('now'));
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('articles_index');
+            return $this->redirectToRoute('actu_index');
         }
 
         return $this->render('articles/edit.html.twig', [
@@ -131,6 +131,6 @@ class ArticlesController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('articles_index');
+        return $this->redirectToRoute('actu_index');
     }
 }

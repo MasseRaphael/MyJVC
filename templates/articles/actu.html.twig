@@ -8,7 +8,7 @@
 
         {% for article in articles %}
             <div>
-            <a href="{{ path('articles_show', {'id': article.id}) }}"><img src="{{ asset('/images/' ~ article.featuredImage) }}">{{ article.titre }}</a>
+            <a href="{{ path('actu_show', {'id': article.id}) }}"><img src="{{ asset('/images/' ~ article.featuredImage) }}">{{ article.titre }}</a>
             </div>
         {% else %}
             <p>Il n'a pas encore d'articles</p>
