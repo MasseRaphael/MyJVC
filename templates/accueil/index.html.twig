@@ -5,11 +5,11 @@
 {% block body %}
 
     {% for article in articles %}
-        <a href='#'><img src="{{ article['image'] }}"><br>{{ article['titre'] }}</a>
+        <a href='#'><img src="{{ asset('/images/' ~ article.featuredImage) }}"><br>{{ article.titre }}</a>
     {% endfor %}
-    
-    {% for liste in listes %}
-        <li><a href='#'>{{ liste }}</a></li>
+
+    {% for listeArticle in listeArticles %}
+        <a href='#'>{{ listeArticle.titre }}</a>
     {% endfor %}
 
 {% endblock %}
