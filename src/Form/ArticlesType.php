@@ -18,15 +18,24 @@ class ArticlesType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class, [
+                'attr' => [
+                    'class' => 'formNouveau'
+                ],
                 'label' => 'Donnez un Titre à votre article',
                 'required' => true
             ])
             ->add('corps', TextareaType::class, [
+                'attr' => [
+                    'class' => 'formNouveauText'
+                ],
                 'label' => 'Entrez votre article',
                 'required' => true,
             ])
             ->add('image', FileType::class, [
-                'label' => 'Choisisez un image de mise en avant',
+                'attr' => [
+                    'class' => 'btn-jvc'
+                ],
+                'label' => 'Choisisez un image de mise en avant  ',
                 'multiple' => false,
                 'mapped' => false,
                 'required' => true
