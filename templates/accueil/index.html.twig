@@ -5,14 +5,14 @@
 {% block body %}
 
     {% for article in articles %}
-        <a href='#'><img src="{{ asset('/images/' ~ article.featuredImage) }}"><br>{{ article.titre }}</a><br>
+        <a href='{{ path('actu_show', {'id': article.id}) }}'><img src="{{ asset('/images/' ~ article.featuredImage) }}"><br>{{ article.titre }}</a><br>
         {% for categorie in article.categories %}
             <p class='{{ categorie }}'>{{ categorie }}</p>
         {% endfor %}
     {% endfor %}
 
     {% for listeArticle in listeArticles %}
-        <a href='#'>{{ listeArticle.titre }}</a>
+        <a href='{{ path('actu_show', {'id': listeArticle.id}) }}'>{{ listeArticle.titre }}</a>
     {% endfor %}
 
 {% endblock %}

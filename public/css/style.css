@@ -131,3 +131,11 @@ nav a:hover{
     color: #4da0cd;
     margin: 10px;
 }
+
+.souscate a:hover{
+    color: white;
+}
+
+.important_link a:hover{
+    text-decoration: underline;
+}

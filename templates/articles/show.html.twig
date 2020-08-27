@@ -3,40 +3,24 @@
 {% block title %}{{ article.titre }}{% endblock %}
 
 {% block body %}
-    <h1>Articles</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ article.titre }}</td>
-            </tr>
-            <tr>
-                <th>Corps</th>
-                <td>{{ article.corps }}</td>
-            </tr>
-            <tr>
-                <th>Created_at</th>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated_at</th>
-                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Featured_image</th>
-                <td>{{ article.featuredImage }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <img src="{{ asset('/images/' ~ article.featuredImage) }}">
 
-    <a href="{{ path('actu_index') }}">back to list</a>
+    <h1>{{ article.titre }}</h1>
+    {% for categorie in article.categories %}
+               <p class='{{ categorie }}'>{{ categorie }}</p>
+    {% endfor %}
 
-    <a href="{{ path('actu_edit', {'id': article.id}) }}">edit</a>
+    <p>{{ article.corps|raw }}</p>
 
-    {{ include('articles/_delete_form.html.twig') }}
+    {% if article.createdAt == article.updatedAt %}
+
+    <p>Ecrit par <a href="{{ path('profil', {'username': article.users}) }}">{{ article.users }}</a> le {{ article.createdAt ? article.createdAt|date('d-m-Y H:i') : '' }}</p>
+
+    {% else %}
+
+    <p>Ecrit par <a href="{{ path('profil', {'username': article.users}) }}">{{ article.users }}</a> le {{ article.createdAt ? article.createdAt|date('d-m-Y H:i') : '' }} mise à jour le {{ article.updatedAt ? article.updatedAt|date('d-m-Y H:i') : '' }}</p>
+
+    {% endif %}
+    
 {% endblock %}
