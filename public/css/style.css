@@ -1,3 +1,15 @@
+*{
+    font-family: sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    margin: 0 0 5vh;
+}
+
 body{
     margin: 0;
 }
@@ -50,6 +62,12 @@ nav a{
     justify-content: space-between;
 }
 
+.layout{
+    max-width: 60vw;
+    margin: 0 auto;
+    padding: 10vh 5vw;
+}
+
 .layout_footer{
     max-width: 60vw;
     margin: 20px auto;
@@ -60,6 +78,16 @@ nav a{
 .souscate{
     background: #002F46;
     padding: 10px;
+}
+
+.logform{
+    margin: 7.5vh 0;
+}
+
+.logform input{
+    margin: 2vh 0;
+    width: 100%;
+    font-size: 20pt;
 }
 
 .souscate a{
