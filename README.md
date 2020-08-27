@@ -34,6 +34,7 @@ composer require logger
 
 puis importer la base de données qui se trouve dans le dossier BDD dans phpmyadmin.
 Une fois l'importation effectuer nous allons connecter cette base de données pour ce faire dans le fichier .env ligne 32
+La ligne indiquée par <===
 
 ```
 ###> doctrine/doctrine-bundle ###
@@ -41,8 +42,14 @@ Une fois l'importation effectuer nous allons connecter cette base de données po
 # For an SQLite database, use: "sqlite:///%kernel.project_dir%/var/data.db"
 # For a PostgreSQL database, use: "postgresql://db_user:db_password@127.0.0.1:5432/db_name?serverVersion=11&charset=utf8"
 # IMPORTANT: You MUST configure your server version, either here or in config/packages/doctrine.yaml
-DATABASE_URL=mysql://root@127.0.0.1:3306/myjvc?serverVersion=5.7 <---
+DATABASE_URL=mysql://root@127.0.0.1:3306/myjvc?serverVersion=5.7 <===
 ###< doctrine/doctrine-bundle ###
+```
+A la place de root indiquez le nom d'utilisateur de la base de données suivi par : et du mot de passe de la base suivi de @ l'adresse ip de la base(si c'est un serveur local elle rest 127.0.0.1) suivi par : le port du serveur mysql(généralement 3306 pour les serveurs locale) trouvable sur phpmyadmin dans la ligne en haut à gauche suivi d'un / et du nom de la base de données.
+
+ex:
+```
+DATABASE_URL=mysql://nomdutilisateur:motdepasse@127.0.0.1:3306/myjvc?serverVersion=5.7
 ```
 
 # Utilisation
@@ -56,4 +63,5 @@ ou
 
 php bin/console server:start
 ```
-puis entrez l'adresse 127.0.0.1:8000 vous arriverez sur la page d'accueil
+puis entrez l'adresse 127.0.0.1:8000 vous arriverez sur la page d'accueil.
+Si vous avez besoin de vous connecter vous trouverai des les log utilisateurs dans le dossier BDD.
