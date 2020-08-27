@@ -9,8 +9,8 @@
         <header>
             <nav>
                 <div class="layout_header">
-                    <div class="navigation"><a href="#">Logo</a><a href="#">Jeux</a><a href="#">Actu</a><a href="#">TV</a><a href="#">Vidéos</a><a href="#">Forums</a><a href="#">Store</a></div>
-                    <div class="connexion"><a href="#">icone recherche</a><a href="#">Mon Compte</a><div>
+                    <div class="navigation"><a href="/">Logo</a><a href="#">Jeux</a><a href="/actu/">Actu</a><a href="#">TV</a><a href="#">Vidéos</a><a href="#">Forums</a><a href="#">Store</a></div>
+                    <div class="connexion"><a href="#">icone recherche</a>{% if app.user == '' %}<a href="/connexion">Connexion</a>{% else %}<a href="{{ path('profil', {'username': app.user}) }}">Mon Compte</a>{% endif %}<div>
                 </div>
             </nav>
             <div class="souscate">
@@ -37,22 +37,19 @@
             </div>
             <div class="important_link">
                 <div class="layout_footer">
-                    <div class="mise_avant"><h1>à ne pas manquer</h1>
-                        <a href="#">img pub<br> Titre<a><a href="#">img article<br> Titre<a>
-                    </div>
                     <div class="liens_utiles">
-                        <a href="#">logo</a><br>
-                        <a href="#">Contact</a><br>
-                        <a href="#">L'équipe</a><br>
-                        <a href="#">Informations légales</a><br>
-                        <a href="#">C.G.U.</a><br>
+                        <a href="/">logo</a>
+                        <a href="#">Contact</a>
+                        <a href="#">L'équipe</a>
+                        <a href="#">Informations légales</a>
+                        <a href="#">C.G.U.</a>
                         <a href="#">Modération</a><br>
-                        <a href="#">Politique de confidentialité</a><br>
-                        <a href="#">Cookies</a><br>
-                        <a href="#">Gérer les Cookies</a><br>
-                        <a href="#">Nawsletter</a><br>
-                        <a href="#">RSS</a><br>
-                        <a href="#">Jobs</a><br>
+                        <a href="#">Politique de confidentialité</a>
+                        <a href="#">Cookies</a>
+                        <a href="#">Gérer les Cookies</a>
+                        <a href="#">Nawsletter</a>
+                        <a href="#">RSS</a>
+                        <a href="#">Jobs</a>
                     </div>
                 </div>
             </div>
