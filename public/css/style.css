@@ -56,21 +56,17 @@ nav a:hover{
 .PC{
     background: darkslategrey;
     color: white;
-}
-
-.PS4, .PS5{
-    background: blue;
-    color: white;
-}
-
-.One, .XboxSeries{
-    background: green;
-    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 .Switch{
     background: red;
     color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 .block-articles{
@@ -170,6 +166,23 @@ nav a:hover{
     text-align: center;
 }
 
+.PS4, .PS5{
+    background: blue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.One, .XboxSeries{
+    background: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+
 .reseaux a{
     margin: 10px;
 }
@@ -204,4 +217,16 @@ nav a:hover{
 
 .important_link a:hover{
     text-decoration: underline;
+}
+
+.block-articles a:hover{
+    color: #ff4000;
+}
+
+.block-articles a{
+    color: black;
+}
+
+.liste a:hover{
+    color: #ff4000;
 }

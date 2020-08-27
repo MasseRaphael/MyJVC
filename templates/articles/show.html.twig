@@ -3,23 +3,25 @@
 {% block title %}{{ article.titre }}{% endblock %}
 
 {% block body %}
-
-    <img src="{{ asset('/images/' ~ article.featuredImage) }}">
-
+        <img src="{{ asset('/images/' ~ article.featuredImage) }}" witdh="100%">
+    
     <h1>{{ article.titre }}</h1>
-    {% for categorie in article.categories %}
+
+    <div class="cat">
+        {% for categorie in article.categories %}
                <p class='{{ categorie }}'>{{ categorie }}</p>
-    {% endfor %}
+        {% endfor %}
+    </div>
 
     <p>{{ article.corps|raw }}</p>
 
     {% if article.createdAt == article.updatedAt %}
 
-    <p>Ecrit par <a href="{{ path('profil', {'username': article.users}) }}">{{ article.users }}</a> le {{ article.createdAt ? article.createdAt|date('d-m-Y H:i') : '' }}</p>
+    <h2>Ecrit par <a href="{{ path('profil', {'username': article.users}) }}">{{ article.users }}</a> le {{ article.createdAt ? article.createdAt|date('d-m-Y H:i') : '' }}</h2>
 
     {% else %}
 
-    <p>Ecrit par <a href="{{ path('profil', {'username': article.users}) }}">{{ article.users }}</a> le {{ article.createdAt ? article.createdAt|date('d-m-Y H:i') : '' }} mise à jour le {{ article.updatedAt ? article.updatedAt|date('d-m-Y H:i') : '' }}</p>
+    <h2>Ecrit par <a href="{{ path('profil', {'username': article.users}) }}">{{ article.users }}</a> le {{ article.createdAt ? article.createdAt|date('d-m-Y H:i') : '' }} mise à jour le {{ article.updatedAt ? article.updatedAt|date('d-m-Y H:i') : '' }}</h2>
 
     {% endif %}
     
