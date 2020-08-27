@@ -9,14 +9,13 @@
         <header>
             <nav>
                 <div class="layout_header">
-                    <div class="navigation"><a href="/">Logo</a><a href="#">Jeux</a><a href="/actu/">Actu</a><a href="#">TV</a><a href="#">Vidéos</a><a href="#">Forums</a><a href="#">Store</a></div>
-                    <div class="connexion"><a href="#">icone recherche</a>{% if app.user == '' %}<a href="/connexion">Connexion</a>{% else %}<a href="{{ path('profil', {'username': app.user}) }}">Mon Compte</a>{% endif %}<div>
+                    <div class="navigation"><a class="logo" href="/"><img src="/images/jeuxvideo.png" width="25%"></a><a href="#">Jeux</a><a href="/actu/">Actu</a><a href="#">TV</a><a href="#">Vidéos</a><a href="#">Forums</a><a href="#">Store</a></div>
+                    <div class="connexion"><a class="logo" href="#"><img src="/images/search.png"></a>{% if app.user == '' %}<a href="/connexion">Connexion</a>{% else %}<a href="{{ path('profil', {'username': app.user}) }}">Mon Compte</a>{% endif %}<div>
                 </div>
             </nav>
             <div class="souscate">
                 <div class="layout_header">
                     <div class="support"><a href="#">PC</a><a href="#">PS5</a><a href="#">Xbox Series</a><a href="#">PS4</a><a href="#">One</a><a href="#">Switch</a><a href="#">Wii U</a><a href="#">PS3</a><a href="#">Xbox 360</a><a href="#">3DS</a><a href="#">PS Vita</a><a href="#">iOS</a><a href="#">Android</a></div>
-                    <div class="promo"><a href="#">Promo Playstation Plus</a></div>
                 </div>
             </div>
         </header>
@@ -30,17 +29,17 @@
             <div class="social_media">
                 <div class="layout_footer">
                     <div class="reseaux"><h1>Nous Suivre</h1>
-                        <a href="#">icone facebook</a><a href="#">icone twitter</a><a href="#">icone insta</a><a href="#">icone youtube</a><a href="#">icone rss</a>
+                        <a href="#"><img src="/images/facebook.png"></a><a href="#"><img src="/images/twitter.png"></a><a href="#"><img src="/images/instagram-sketched.png"></a><a href="#"><img src="/images/youtube.png"></a><a href="#"><img src="/images/rss.png"></a>
                     </div>
                     <div class="app"><h1>Télécharger l'app</h1>
-                        <a href="#">icone google play</a><a href="#">icone app store</a><a href="#">icone win 10</a>
+                        <a href="#"><img src="/images/google-play.png"></a><a href="#"><img src="/images/app.png"></a><a href="#"><img src="/images/windows.png"></a>
                     </div>
                 </div>
             </div>
             <div class="important_link">
                 <div class="layout_footer">
                     <div class="liens_utiles">
-                        <a href="/">logo</a>
+                        <a href="/"><img src="/images/jeuxvideo.png" width="25%"></a>
                         <a href="#">Contact</a>
                         <a href="#">L'équipe</a>
                         <a href="#">Informations légales</a>
@@ -49,14 +48,14 @@
                         <a href="#">Politique de confidentialité</a>
                         <a href="#">Cookies</a>
                         <a href="#">Gérer les Cookies</a>
-                        <a href="#">Nawsletter</a>
+                        <a href="#">Newsletter</a>
                         <a href="#">RSS</a>
                         <a href="#">Jobs</a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>logo Webedia jeuxvideo.com est édité par <a href="#">Webedia</a>. Copyright @ 1997-2020 Webedia. Tous droits réservés.
+                <p>jeuxvideo.com est édité par <a href="#">Webedia</a>. Copyright @ 1997-2020 Webedia. Tous droits réservés.
             </div>
         </footer>
         {% block javascripts %}{% endblock %}

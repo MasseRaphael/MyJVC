@@ -5,7 +5,10 @@
 {% block body %}
 
     {% for article in articles %}
-        <a href='#'><img src="{{ asset('/images/' ~ article.featuredImage) }}"><br>{{ article.titre }}</a>
+        <a href='#'><img src="{{ asset('/images/' ~ article.featuredImage) }}"><br>{{ article.titre }}</a><br>
+        {% for categorie in article.categories %}
+            <p class='{{ categorie }}'>{{ categorie }}</p>
+        {% endfor %}
     {% endfor %}
 
     {% for listeArticle in listeArticles %}

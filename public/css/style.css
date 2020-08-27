@@ -25,12 +25,36 @@ footer{
 
 nav{
     background: #004365;
-    padding: 20px;
+    padding: 0 20px 20px;
 }
 
 nav a{
     color: white;
-    margin: 20px;
+    padding: 20px;
+}
+
+nav a:hover{
+    background: #19709e;
+}
+
+.logo:hover{
+    background: none;
+}
+
+.logh1{
+    color: #ff4000;
+}
+
+.btn-jvc{
+    background: #ff4000;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-jvc:hover{
+    box-shadow: black 2px 2px 5px;
 }
 
 .important_link{
@@ -39,19 +63,10 @@ nav a{
     color: white;
 }
 
-.important_link a{
-    color: white;
-    margin: 20px;
-}
-
 .copyright{
     text-align: center;
     background: #002F46;
     padding: 10px;
-    color: #4da0cd;
-}
-
-.copyright a{
     color: #4da0cd;
 }
 
@@ -84,6 +99,28 @@ nav a{
     margin: 7.5vh 0;
 }
 
+.social_media{
+    background: white;
+    text-align: center;
+}
+
+.reseaux a{
+    margin: 10px;
+}
+
+.app a{
+    margin: 10px;
+}
+
+.important_link a{
+    color: white;
+    margin: 20px;
+}
+
+.copyright a{
+    color: #4da0cd;
+}
+
 .logform input{
     margin: 2vh 0;
     width: 100%;
@@ -93,9 +130,4 @@ nav a{
 .souscate a{
     color: #4da0cd;
     margin: 10px;
-}
-
-.social_media{
-    background: white;
-    text-align: center;
 }
