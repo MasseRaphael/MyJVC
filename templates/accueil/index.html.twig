@@ -5,15 +5,27 @@
 {% block body %}
 
     {% for article in articles %}
-        <a href='{{ path('actu_show', {'id': article.id}) }}'><img src="{{ asset('/images/' ~ article.featuredImage) }}"><br>{{ article.titre }}</a><br>
-        {% for categorie in article.categories %}
-            <p class='{{ categorie }}'>{{ categorie }}</p>
-        {% endfor %}
+        <div class="block-articles">
+            <a href='{{ path('actu_show', {'id': article.id}) }}'><img src="{{ asset('/images/' ~ article.featuredImage) }}" width="100%"><p>{{ article.titre }}</p></a><br>
+            <hr>
+            <div class="categorie">
+                <div class="cat">
+                {% for categorie in article.categories %}
+                    <p class='{{ categorie }}'>{{ categorie }}</p>
+                {% endfor %}
+                </div>
+                <div class="date">
+                    <p>{{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}</p>
+                </div>
+            </div>
+        </div>
     {% endfor %}
 
+    <div class="liste">
     {% for listeArticle in listeArticles %}
-        <a href='{{ path('actu_show', {'id': listeArticle.id}) }}'>{{ listeArticle.titre }}</a>
+        {{ listeArticle.createdAt ? listeArticle.createdAt|date('d-m-Y H:i') : '' }} | <a href='{{ path('actu_show', {'id': listeArticle.id}) }}'>{{ listeArticle.titre }}</a><br>
     {% endfor %}
+    </div>
 
 {% endblock %}
 

@@ -29,6 +29,21 @@ nav{
     padding: 0 20px 20px;
 }
 
+thead{
+    background: #d4d4d4;
+}
+
+tbody{
+    background: #f2f2f2;
+}
+
+th{
+    border: black solid 1px;
+}
+td{
+    border: black solid 1px;
+}
+
 nav a{
     color: white;
     padding: 20px;
@@ -36,6 +51,44 @@ nav a{
 
 nav a:hover{
     background: #19709e;
+}
+
+.PC{
+    background: darkslategrey;
+    color: white;
+}
+
+.PS4, .PS5{
+    background: blue;
+    color: white;
+}
+
+.One, .XboxSeries{
+    background: green;
+    color: white;
+}
+
+.Switch{
+    background: red;
+    color: white;
+}
+
+.block-articles{
+    border: rgba(0, 0, 0, 0.25) solid 2px;
+    margin: 20px;
+}
+
+.categorie{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cat{
+    display: flex;
+}
+
+.liste{
+    font-size: 15pt;
 }
 
 .logo:hover{

@@ -21,7 +21,7 @@ class ArticlesController extends AbstractController
      */
     public function actu(): Response
     {
-        $articles = $this->getDoctrine()->getRepository(Articles::class)->findAll();
+        $articles = $this->getDoctrine()->getRepository(Articles::class)->findBy([], ['created_at' => 'desc']);
         return $this->render('articles/actu.html.twig', [
             'articles' => $articles,
         ]);

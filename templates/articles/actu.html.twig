@@ -7,9 +7,20 @@
 <h1>Listes des Actualitées</h1>
 
         {% for article in articles %}
-            <div>
-            <a href="{{ path('actu_show', {'id': article.id}) }}"><img src="{{ asset('/images/' ~ article.featuredImage) }}">{{ article.titre }}</a>
+        <div class="block-articles">
+            <a href='{{ path('actu_show', {'id': article.id}) }}'><img src="{{ asset('/images/' ~ article.featuredImage) }}" width="100%"><p>{{ article.titre }}</p></a><br>
+            <hr>
+            <div class="categorie">
+                <div class="cat">
+                {% for categorie in article.categories %}
+                    <p class='{{ categorie }}'>{{ categorie }}</p>
+                {% endfor %}
+                </div>
+                <div class="date">
+                    <p>{{ article.createdAt ? article.createdAt|date('d-m-Y') : '' }}</p>
+                </div>
             </div>
+        </div>
         {% else %}
             <p>Il n'a pas encore d'articles</p>
         {% endfor %}

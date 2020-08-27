@@ -3,13 +3,49 @@
 {% block title %}{{ users.username }}{% endblock %}
 
 {% block body %}
-    <h1>Bienvenue sur le profil de {{ users.username }}</h1>
 
     {% if app.user %}
 
+    <h1>Bienvenue {{ users.username }} !</h1>
+
     <a href="/actu/admin">Gestion des articles</a>
+    <a class="btn-jvc" href="/logout">Deconnexion</a>
+
+    <h2>Vos articles</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Créé le</th>
+                <th>Titre</th>
+                <th>Mis à jour le</th>
+                <th>Catégories</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+
+            <tr>
+                <td>{{ article.createdAt ? article.createdAt|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.updatedAt ? article.updatedAt|date('d-m-Y H:i') : '' }}</td>
+                <td>{% for categorie in article.categories %}
+                    {{ categorie }}, {% endfor %}</td>
+                <td>
+                    <a href="{{ path('actu_show', {'id': article.id}) }}">Voir</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas d'articles pour le moment</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
     {% else %}
+
+    <h1>Bienvenue sur le profil de {{ users.username }}</h1>
 
     <table class="table">
         <thead>
