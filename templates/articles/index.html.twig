@@ -25,11 +25,11 @@
                 <td>{{ article.id }}</td>
                 <td>{{ article.titre }}</td>
                 <td>{{ article.corps }}</td>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.createdAt ? article.createdAt|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ article.updatedAt ? article.updatedAt|date('d-m-Y H:i') : '' }}</td>
                 <td><img src="{{ asset('/images/' ~ article.featuredImage) }}" width="50%"><br>{{ article.featuredImage }}</td>
                 <td>{% for categorie in article.categories %}
-                {{ categorie }}{% endfor %}</td>
+                {{ categorie }}, {% endfor %}</td>
                 <td>{{ article.users }}</td>
                 <td>
                     <a href="{{ path('actu_show', {'id': article.id}) }}">Voir</a>
