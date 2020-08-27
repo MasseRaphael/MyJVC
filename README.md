@@ -34,7 +34,7 @@ composer require logger
 
 puis importer la base de données qui se trouve dans le dossier BDD dans phpmyadmin.
 Une fois l'importation effectuer nous allons connecter cette base de données pour ce faire dans le fichier .env ligne 32
-La ligne indiquée par <===
+La ligne indiquée par <=== si dessous :
 
 ```
 ###> doctrine/doctrine-bundle ###
